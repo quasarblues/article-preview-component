@@ -1,0 +1,219 @@
+/* CSS RESET */
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/*
+    2. Remove default margin
+  */
+* {
+    margin: 0;
+}
+
+/*
+    3. Allow percentage-based heights in the application
+  */
+html,
+body {
+    height: 100%;
+}
+
+/*
+    Typographic tweaks!
+    4. Add accessible line-height
+    5. Improve text rendering
+  */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+/*
+    6. Improve media defaults
+  */
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/*
+    7. Remove built-in form typography styles
+  */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/*
+    8. Avoid text overflows
+  */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+/*
+    9. Create a root stacking context
+  */
+#root,
+#__next {
+    isolation: isolate;
+}
+
+:root {
+    --dark-grayish-blue: hsl(217, 19%, 35%);
+    --dark-blue: hsl(214, 17%, 51%);
+    --grayish-blue: hsl(212, 23%, 69%);
+    --light-grayish-blue: hsl(210, 46%, 95%);
+
+    --font-family-manrope: 'Manrope', sans-serif;
+    --standard-font-size: 0.875rem;
+    --weight-500: 500;
+    --weight-700: 700;
+}
+
+/* GENERAL STYLES */
+body {
+    background-color: var(--light-grayish-blue);
+    font-family: var(--font-family-manrope);
+    min-height: 100vh;
+    place-items: center;
+}
+
+article.container {
+    display: grid;
+    background-color: white;
+    max-width: 800px;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 1rem;
+}
+
+.img-container img {
+    max-height: 100%;
+}
+
+.article-preview {
+    padding: 2.1rem 2.1rem 0 2.1rem;
+}
+
+.article-preview h1 {
+    color: var(--dark-grayish-blue);
+    font-size: 1.3rem;
+    font-weight: var(--weight-700);
+}
+
+.article-preview p {
+    color: var(--dark-blue);
+    font-size: var(--standard-font-size);
+    font-weight: var(--weight-500);
+    margin: 1rem 0;
+}
+
+.article-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    padding: 1rem 2.1rem;
+}
+
+.article-footer img {
+    border-radius: 50%;
+    width: 2.6rem;
+}
+
+.article-footer .author-date {
+    display: flex;
+    flex-direction: column;
+}
+
+.article-footer .author-date p {
+    margin: 0;
+}
+
+.author-date p:first-of-type {
+    color: var(--dark-grayish-blue);
+    font-weight: var(--weight-700);
+}
+
+.author-date p:nth-of-type(2) {
+    color: var(--grayish-blue);
+}
+
+div.share-btn {
+    width: 20px;
+    margin-left: auto;
+    position: relative;
+    z-index: 1;
+}
+
+div.share-btn::before {
+    content: "";
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--light-grayish-blue);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    top: -10px;
+    left: -10px;
+}
+
+div.share-btn-clicked::before {
+    content: "";
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: var(--grayish-blue);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    top: -10px;
+    left: -10px;
+}
+
+.share-container {
+    background-color: var(--dark-grayish-blue);
+    width: 100%;
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.share-container img {
+    margin: 0 0.5rem;
+}
+
+.share-container p {
+    color: var(--grayish-blue);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.share-container .white-share-btn {
+    margin-left: 2rem;
+}
+
+.filter-white {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(1%) hue-rotate(210deg) brightness(109%) contrast(101%);
+}
