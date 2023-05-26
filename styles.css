@@ -93,24 +93,29 @@ body {
     background-color: var(--light-grayish-blue);
     font-family: var(--font-family-manrope);
     min-height: 100vh;
+    display: grid;
     place-items: center;
 }
 
 article.container {
-    display: grid;
     background-color: white;
-    max-width: 800px;
+    max-width: 750px;
     border-radius: 15px;
     overflow: hidden;
     margin: 1rem;
 }
 
+.img-container {
+    height: 100%;
+}
+
 .img-container img {
-    max-height: 100%;
+    min-height: 100%;
 }
 
 .article-preview {
     padding: 2.1rem 2.1rem 0 2.1rem;
+    grid-area: article;
 }
 
 .article-preview h1 {
@@ -143,6 +148,7 @@ article.container {
 .article-footer .author-date {
     display: flex;
     flex-direction: column;
+    margin-left: 1rem;
 }
 
 .article-footer .author-date p {
@@ -216,4 +222,35 @@ div.share-btn-clicked::before {
 
 .filter-white {
     filter: brightness(0) saturate(100%) invert(100%) sepia(100%) saturate(1%) hue-rotate(210deg) brightness(109%) contrast(101%);
+}
+
+/* On 40rem screen sizes */
+@media only screen and (min-width: 40rem) {
+    article.container {
+        display: grid;
+    }
+
+    .body {
+        background-color: red;
+    }
+
+    article.container {
+        grid-template-areas:
+            "img img article article"
+            "img img footer footer";
+    }
+
+    .img-container {
+        grid-area: img;
+    }
+
+    .img-container img {
+        min-height: 100%;
+        object-fit: cover;
+        object-position: 0 0;
+    }
+
+    .article-footer {
+        grid-area: footer;
+    }
 }
