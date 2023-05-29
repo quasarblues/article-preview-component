@@ -189,13 +189,17 @@ button.share-btn {
     background-color: var(--dark-grayish-blue);
     width: 13%;
     padding: 0.8rem 1rem;
-    display: flex;
+    display: none;
     border-radius: 10px;
     justify-content: space-around;
     align-items: center;
     position: absolute;
     top: 50%;
     left: 60%;
+}
+
+.display-share-container {
+    display: flex;
 }
 
 .share-container img {
